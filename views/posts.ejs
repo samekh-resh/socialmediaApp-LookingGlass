@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <title>Looking Glass</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../innerWorkings.css">
+</head>
+<body>
+<div class="container">
+
+  <header class="navbar">
+    <div class="container-fluid">
+      <a href="/feed" class="navbar-brand">Looking Glass</a>
+      <div>
+        <a href="/feed">Feed</a>
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1><%= posts[0].postedBy %>'s Post</h1>
+    <div>
+      <div class="card p-3 rounded-3">
+        <div class="card-body text-center">
+            <a href="/page/<%= posts[0].postedBy %>" class="username rounded-3"><%= posts[0].postedBy %></a>
+        </div>
+
+        <a href="/post/<%= posts[0]._id %>">
+        <img src="../<%= posts[0].img %>" alt="" class="rounded-3">
+        </a>
+
+        <div class="card-body">
+            <div class="card-title">
+                <span class="hidden"><%= posts[0]._id %></span>
+                <span class="likes"><span><%= posts[0].likes %></span> likes</span>
+                <i class="fa fa-heart likes"></i>
+            </div>
+            <p class="clear mt-5 p-2 rounded-3 text-center"><%= posts[0].caption %></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</div>
+<script src="../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <title>Looking Glass: Feed</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="../innerWorkings.css">
+</head>
+<body>
+<div class="container">
+
+  <header class="navbar">
+    <div class="container-fluid">
+      <a href="/feed" class="navbar-brand">Looking Glass</a>
+      <div>
+        <a href="/profile">Profile</a>
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Feed</h1>
+    <div>
+      <% for (let i = posts.length-1; i > -1; i--) { %>
+      <div class="card p-3 rounded-3">
+        <div class="card-body text-center">
+            <a href="/page/<%= posts[i].postedBy %>" class="username rounded-3"><%= posts[i].postedBy %></a>
+        </div>
+
+        <a href="/post/<%= posts[i]._id %>">
+        <img src="<%= posts[i].img %>" alt="" class="rounded-3">
+        </a>
+
+        <div class="card-body">
+            <div class="card-title">
+                <span class="hidden"><%= posts[i]._id %></span>
+                likes <span class="likes"> <%= posts[i].likes %> </span>
+                <i class="fa fa-heart likes"></i>
+                <i class="fa fa-bookmark"></i>
+
+                <% if (posts[i].postedBy.equals(user._id)) {%>
+                <i class="fa fa-trash"></i>
+
+                <% } %>
+            </div>
+            <p class="clear mt-5 p-2 rounded-3 text-center"><%= posts[i].caption %></p>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </main>
+
+</div>
+<script src="main.js"></script>
+</body>
+</html>

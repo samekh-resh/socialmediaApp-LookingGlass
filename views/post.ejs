@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+    <title>Looking Glass</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../innerWorkings.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    
+    
+</head>
+<body>
+<div class="container">
+
+  <header class="navbar">
+    <div class="container-fluid">
+      <a href="/feed" class="navbar-brand">Looking Glass</a>
+      <div>
+        <a href="/feed">Feed</a>
+        <a href="/profile">Profile</a>
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1><%= posts[0].postedBy %>'s Post</h1>
+    <div>
+      <div class="card p-3 rounded-3">
+        <div class="card-body text-center">
+            <a href="/page/<%= posts[0].postedBy %>" class="username rounded-3"><%= posts[0].postedBy %></a>
+        </div>
+
+        <a href="/post/<%= posts[0]._id %>">
+        <img src="../<%= posts[0].img %>" alt="" class="rounded-3">
+        </a>
+
+        <div class="card-body">
+            <div class="card-title">
+                <span class="hidden"><%= posts[0]._id %></span>
+                <span class="likes"><span><%= posts[0].likes %></span> likes</span>
+                <i class="fa fa-heart likes"></i>
+                <i class="fasnod fa-trash"></i>
+                <!-- <form action="/save" method="POST">
+                  <input type="text" name="savedBy" value="<%# user._id %>">
+                  <input type="text" name="postId" value="<%# posts[0]._id %>">
+                  <i class="fa fa-bookmark" type="submit"></i>
+                </form>
+                 -->
+            </div>
+            <p class="clear mt-5 p-2 rounded-3 text-center"><%= posts[0].caption %></p>
+        </div>
+
+        <div class="list-group py-3">
+            <form action="/post/comments/<%= posts[0]._id %>" method="POST" class="mb-3">
+                <input type="text" name="comment" placeholder="comment" class="makeComment">
+                <input type="text" name="postId" value="<%= posts[0]._id %>" class="hidden">
+                <button type="submit" class="commentButton fs-5 py-1">Comment</button>
+            </form>
+
+            <% for (let i = comments.length - 1; i >= 0; i--) { %>
+                <div class="commentSection">
+                    <strong><%= comments[i].postedBy %>:</strong>
+                    <span><%= comments[i].comment %></span>
+                </div>
+            <% } %>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</div>
+<script src="main.js"></script>
+</body>
+</html>

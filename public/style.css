@@ -1,0 +1,112 @@
+body{
+  word-wrap:break-word;
+  background-color: #e65f5c;
+  box-sizing: border-box;
+  margin: none;
+  display: flex;
+  
+}
+
+h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 4em;
+  color: white;
+}
+
+a:hover {
+  color: white;
+}
+
+a:visited {
+  color: pink;
+}
+#sidepanel {
+  color: #0b3954;
+  background-color: #00a7e1;
+  border: .3em white solid;
+  width: 40%;
+  height: 100%;
+  flex-direction: column;
+  padding: 5%;
+  margin: 5%;
+  margin-left: 10%;
+  border-radius: 30px;
+  text-align: center;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+#content {
+  color: #0b3954;
+  width: 100%;
+  height: 90%;
+  background-color: #ffa9a3;
+  margin: 5%;
+  border-radius: 30px;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  text-align: center;
+}
+
+#caticon {
+  width: 150px;
+}
+
+#sampleimg {
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  margin: auto;
+  text-align: center;
+}
+#mockpost {
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  border: .3em white solid;
+  border-radius: 30px;
+}
+
+button {
+  display:inline-block;
+  padding:0.5em 1.5em;
+  margin:0 0.75em 0.75em 0;
+  border-radius:2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color: #e65f5c;
+  text-align:center;
+  transition: all 0.2s;
+  }
+button:hover{
+  background-color: #f4442e;
+  }
+
+
+
+  /* login and sign up */
+
+.formBackground{
+  margin-top: 7%;
+  /* needs to be switched around */
+  border-radius: 10px 20px 10px 20px; 
+  background: rgb(238, 221, 124);
+}
+
+.formBackground a{
+  color: rgb(122, 44, 232);
+}
+  @media all and (max-width:30em){
+  }
+button{
+  display:block;
+  margin:0.2em auto;
+}
+
+.divide {
+  color: #0b3954;
+  margin: auto;
+}
+
+
